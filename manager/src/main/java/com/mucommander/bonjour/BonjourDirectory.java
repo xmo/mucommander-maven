@@ -34,6 +34,7 @@ import org.slf4j.LoggerFactory;
 
 import com.mucommander.commons.file.FileProtocols;
 import com.mucommander.commons.file.FileURL;
+import java.util.logging.Level;
 
 /**
  * Collects and maintains a list of available Bonjour/Zeroconf services using the JmDNS library.
@@ -96,8 +97,12 @@ public class BonjourDirectory implements ServiceListener {
             }
         }
         else if(!enabled && jmDNS!=null) {
-            // Shutdown JmDNS
-            jmDNS.close();
+            try {
+                // Shutdown JmDNS
+                jmDNS.close();
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(BonjourDirectory.class.getName()).log(Level.SEVERE, null, ex);
+            }
             services.clear();
             jmDNS = null;
         }

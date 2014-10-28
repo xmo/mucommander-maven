@@ -74,7 +74,7 @@
                 <artifactId>yanfs</artifactId>
                 <version>1.2</version>
                 <scope>system</scope>
-                <systemPath>${project.basedir}/assembly/lib/yanfs-1.2.jar</systemPath>
+                <systemPath>${project.basedir}/../assembly/lib/yanfs-1.2.jar</systemPath>
             </dependency>
 
             <dependency>
@@ -106,11 +106,6 @@
                 <groupId>org.apache.ant</groupId>
                 <artifactId>ant</artifactId>
                 <version>1.7.1</version>
-            </dependency>
-            <dependency>
-                <groupId>jmdns</groupId>
-                <artifactId>jmdns</artifactId>
-                <version>1.0</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>

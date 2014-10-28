@@ -29,14 +29,13 @@ import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 
-import com.apple.laf.AquaTabbedPaneUI;
 import com.mucommander.commons.file.impl.local.LocalFile;
 import com.mucommander.commons.file.util.PathUtils;
 import com.mucommander.commons.runtime.JavaVersion;
 import com.mucommander.commons.runtime.OsFamily;
 import com.mucommander.desktop.DesktopManager;
 import com.mucommander.ui.action.ActionManager;
-import com.mucommander.ui.macosx.TabbedPaneUICustomizer;
+//xmo:disabled: import com.mucommander.ui.macosx.TabbedPaneUICustomizer;
 import com.mucommander.ui.main.FolderPanel;
 import com.mucommander.ui.main.MainFrame;
 import com.mucommander.ui.tabs.TabbedPane;
@@ -95,7 +94,7 @@ public class FileTableTabbedPane extends TabbedPane<FileTableTab> implements Foc
 		});
 
 		if (OsFamily.MAC_OS_X.isCurrent()) {
-			TabbedPaneUICustomizer.customizeTabbedPaneUI(this);
+			//xmo:disabled: TabbedPaneUICustomizer.customizeTabbedPaneUI(this);
 		}
 
 		addFocusListener(this);

@@ -35,7 +35,7 @@
         <dependency>
             <groupId>net.java.dev.jets3t</groupId>
             <artifactId>jets3t</artifactId>
-            <version>0.9.0</version>
+            <version>0.9.2</version>
         </dependency>
 
         <dependency>
@@ -80,17 +80,17 @@
         <dependency>
             <groupId>com.mucommander.commons</groupId>
             <artifactId>io</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.mucommander.commons</groupId>
             <artifactId>util</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.mucommander.commons</groupId>
             <artifactId>runtime</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>jcifs</groupId>
@@ -122,6 +122,17 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>com/mucommander/commons/file/impl/hadoop/*.java</exclude>
+                        <exclude>com/mucommander/commons/file/impl/s3/*.java</exclude>
+                        <exclude>com/mucommander/commons/file/impl/vsphere/*.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
