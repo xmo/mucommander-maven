@@ -69,14 +69,10 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <!-- Dirty hack: there is no place to download it from -->
                 <groupId>yanfs</groupId>
                 <artifactId>yanfs</artifactId>
                 <version>1.2</version>
-                <scope>system</scope>
-                <systemPath>${project.basedir}/../assembly/lib/yanfs-1.2.jar</systemPath>
             </dependency>
-
             <dependency>
                 <groupId>com.ibm.icu</groupId>
                 <artifactId>icu4j</artifactId>
@@ -155,6 +151,28 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.4</version>
+                    <inherited>false</inherited>
+                    <executions>
+                        <execution>
+                            <phase>initialize</phase>
+                            <goals>
+                                <goal>install-file</goal>
+                            </goals>
+                            <configuration>
+                                <groupId>yanfs</groupId>
+                                <artifactId>yanfs</artifactId>
+                                <version>1.2</version>
+                                <packaging>jar</packaging>
+                                <file>${project.basedir}/assembly/lib/yanfs-1.2.jar</file>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
